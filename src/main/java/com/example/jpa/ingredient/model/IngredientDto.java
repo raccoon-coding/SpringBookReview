@@ -1,5 +1,6 @@
 package com.example.jpa.ingredient.model;
 
+import com.example.jpa.drink.entity.Drink;
 import lombok.Builder;
 import lombok.Getter;
 

@@ -1,5 +1,6 @@
 package com.example.jpa.ingredient.model;
 
+import com.example.jpa.drink.entity.Drink;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

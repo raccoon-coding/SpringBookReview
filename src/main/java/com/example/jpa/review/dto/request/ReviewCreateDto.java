@@ -1,5 +1,6 @@
 package com.example.jpa.review.dto.request;
 
+import com.example.jpa.book.model.Book;
 import com.example.jpa.review.entity.Review;
 
 public record ReviewCreateDto(String contents, Integer score, Integer bookId) {

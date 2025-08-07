@@ -1,5 +1,7 @@
 package com.example.jpa.book.model;
 
+import com.example.jpa.review.dto.response.ReviewDto;
+import com.example.jpa.review.entity.Review;
 import jakarta.persistence.OneToMany;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,7 +16,7 @@ public class BookDto {
         private String title;
         private Integer pages;
         private Integer price;
-        private List<Review> reviews;
+        private List<ReviewDto> reviews;
 
         public static BookRes from(Book entity) {
             BookRes dto = BookRes.builder()
@@ -22,7 +24,7 @@ public class BookDto {
                     .title(entity.getTitle())
                     .pages(entity.getPages())
                     .price(entity.getPrice())
-                    .reviews(entity.getReviews().stream().map(BookDto.BookRes::from).toList())
+                    .reviews(entity.getReviews().stream().map(ReviewDto::toDto).toList())
                     .build();
 
 

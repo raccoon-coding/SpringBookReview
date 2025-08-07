@@ -1,8 +1,12 @@
 package com.example.jpa.drink.dto.request;
 
 import com.example.jpa.drink.entity.Drink;
+import com.example.jpa.ingredient.model.Ingredient;
+import com.example.jpa.ingredient.model.IngredientDto;
 
-public record DrinkCreateDto(String name, Integer price, String company, List<IngredientCreateDto> ingredients) {
+import java.util.List;
+
+public record DrinkCreateDto(String name, Integer price, String company, List<IngredientDto.Register> ingredients) {
     public Drink toDrinkEntity() {
         return Drink.builder()
                 .name(name)

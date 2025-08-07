@@ -1,5 +1,6 @@
 package com.example.jpa.book.model;
 
+import com.example.jpa.review.entity.Review;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -4,6 +4,7 @@ import com.example.jpa.drink.dto.request.DrinkCreateDto;
 import com.example.jpa.drink.dto.response.DrinkDto;
 import com.example.jpa.drink.entity.Drink;
 import com.example.jpa.drink.repository.DrinkRepository;
+import com.example.jpa.ingredient.repository.IngredientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

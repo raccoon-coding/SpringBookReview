@@ -1,5 +1,7 @@
 package com.example.jpa.review.service;
 
+import com.example.jpa.book.model.Book;
+import com.example.jpa.book.repository.BookRepository;
 import com.example.jpa.review.dto.request.ReviewCreateDto;
 import com.example.jpa.review.dto.response.ReviewDto;
 import com.example.jpa.review.entity.Review;
@@ -17,7 +19,12 @@ public class ReviewService {
     private final ReviewRepository reviewRepository;
 
     public void saveReview(ReviewCreateDto dto) {
-        Book book = bookRepository.findById(dto.bookId());
+        Optional<Book> optionalBook = bookRepository.findById(dto.bookId());
+        if(optionalBook.isEmpty()) {
+            throw new RuntimeException();
+        }
+        Book book = optionalBook.get();
+
         reviewRepository.save(dto.toEntity(book));
     }
 
@@ -31,7 +38,12 @@ public class ReviewService {
     }
 
     public List<ReviewDto> readReviews(int bookId) {
-        Book book = bookRepository.findById(bookId);
+        Optional<Book> optionalBook = bookRepository.findById(bookId);
+        if(optionalBook.isEmpty()) {
+            throw new RuntimeException();
+        }
+        Book book = optionalBook.get();
+
         List<Review> reviews = reviewRepository.findByBook(book);
         if(reviews.isEmpty()) {
             throw new RuntimeException();
